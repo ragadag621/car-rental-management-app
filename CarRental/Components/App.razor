@@ -1,0 +1,38 @@
+@* Root document for the Blazor app. Tailwind is loaded via the Play CDN so the
+   project needs no build step. The dark theme is enabled by adding the "dark"
+   class to <html> and setting Tailwind to class-based dark mode. *@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>DriveNow — Car Rental</title>
+
+    <!-- Tailwind CSS via CDN with class-based dark mode -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet" />
+    <HeadOutlet />
+</head>
+
+<body class="font-sans antialiased bg-neutral-950 text-neutral-100">
+    <Routes />
+    <script src="_framework/blazor.web.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+@* Tiny presentational helper: one label/value row in the booking summary. *@
+<div class="flex items-center justify-between px-4 py-2.5 text-sm">
+    <dt class="text-neutral-400">@Label</dt>
+    <dd class="font-medium text-neutral-100">@Value</dd>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public string Label { get; set; } = string.Empty;
+    [Parameter, EditorRequired] public string Value { get; set; } = string.Empty;
+}

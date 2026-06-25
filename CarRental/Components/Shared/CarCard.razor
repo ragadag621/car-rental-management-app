@@ -1,0 +1,37 @@
+@* Presentational component for a single car. Receives a Car and a callback
+   invoked when the user clicks "Book". Holds no business logic. *@
+
+<div class="group flex flex-col overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 shadow-lg transition hover:border-neutral-700">
+    <div class="relative aspect-video overflow-hidden bg-neutral-800">
+        <img src="@Car.ImageUrl" alt="@Car.Name"
+             class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+        <span class="absolute left-3 top-3 rounded-full bg-neutral-950/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-400 backdrop-blur">
+            @Car.Category
+        </span>
+    </div>
+
+    <div class="flex flex-1 flex-col gap-3 p-5">
+        <h3 class="text-lg font-bold text-neutral-50">@Car.Name</h3>
+
+        <div class="mt-auto flex items-end justify-between">
+            <div>
+                <span class="text-2xl font-extrabold text-amber-400">@Car.DailyPrice.ToString("C0")</span>
+                <span class="text-sm text-neutral-400">/ day</span>
+            </div>
+            <button @onclick="HandleBook"
+                    class="rounded-lg bg-amber-500 px-4 py-2 text-sm font-semibold text-neutral-950 transition hover:bg-amber-400">
+                Book now
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    /// <summary>The car to render.</summary>
+    [Parameter, EditorRequired] public Car Car { get; set; } = default!;
+
+    /// <summary>Raised when the user chooses to book this car.</summary>
+    [Parameter] public EventCallback<Car> OnBook { get; set; }
+
+    private Task HandleBook() => OnBook.InvokeAsync(Car);
+}

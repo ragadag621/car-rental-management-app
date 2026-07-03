@@ -1,53 +1,41 @@
-@* Presentational component for a single car. Receives a Car and a callback
-   invoked when the user clicks "Book". Holds no business logic.
+@* A single car in the catalog grid. The whole card links to the detail page. *@
 
-   The header panel is a self-contained colored block (no external images),
-   so every card is guaranteed to render visibly even with no internet access. *@
+<a href="@($"/cars/{Car.Id}")"
+   class="group flex flex-col overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 transition hover:border-amber-500/60 hover:shadow-lg hover:shadow-amber-500/5">
 
-<div class="group flex flex-col overflow-hidden rounded-2xl border border-neutral-700 bg-neutral-800 shadow-lg transition hover:border-amber-500">
-    <!-- Colored banner: uses the category color + car initial, no remote image -->
-    <div class="relative flex h-40 items-center justify-center @BannerClass">
-        <span class="text-5xl font-black text-neutral-950/80">@Initial</span>
-        <span class="absolute left-3 top-3 rounded-full bg-neutral-950/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-300 backdrop-blur">
+    <div class="relative aspect-video overflow-hidden bg-neutral-800">
+        <img src="@Car.ImageUrl" alt="@Car.Name"
+             class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+        <span class="absolute left-3 top-3 rounded-full px-2.5 py-1 text-xs font-semibold text-neutral-950"
+              style="background-color:@Car.AccentColor;">
             @Car.Category
         </span>
     </div>
 
-    <div class="flex flex-1 flex-col gap-3 p-5">
-        <h3 class="text-lg font-bold text-neutral-50">@Car.Name</h3>
-
-        <div class="mt-auto flex items-end justify-between">
+    <div class="flex flex-1 flex-col p-5">
+        <div class="flex items-start justify-between gap-2">
             <div>
-                <span class="text-2xl font-extrabold text-amber-400">@Car.DailyPrice.ToString("C0")</span>
-                <span class="text-sm text-neutral-400">/ day</span>
+                <h3 class="font-bold text-neutral-50">@Car.Name</h3>
+                <p class="text-sm text-neutral-400">@Car.Brand &middot; @Car.Year</p>
             </div>
-            <button @onclick="HandleBook"
-                    class="rounded-lg bg-amber-500 px-4 py-2 text-sm font-semibold text-neutral-950 transition hover:bg-amber-400">
-                Book now
-            </button>
+            <div class="text-right">
+                <p class="text-lg font-extrabold text-amber-400">@Car.DailyPrice.ToString("C0")</p>
+                <p class="text-xs text-neutral-500">per day</p>
+            </div>
         </div>
+
+        <div class="mt-4 flex items-center gap-4 text-xs text-neutral-400">
+            <span>@Car.Seats seats</span>
+            <span>@Car.TopSpeedKmh km/h</span>
+            <span>@Car.Transmission</span>
+        </div>
+
+        <span class="mt-5 inline-flex w-full items-center justify-center rounded-lg bg-neutral-800 py-2 text-sm font-semibold text-neutral-100 transition group-hover:bg-amber-500 group-hover:text-neutral-950">
+            View details
+        </span>
     </div>
-</div>
+</a>
 
 @code {
-    /// <summary>The car to render.</summary>
     [Parameter, EditorRequired] public Car Car { get; set; } = default!;
-
-    /// <summary>Raised when the user chooses to book this car.</summary>
-    [Parameter] public EventCallback<Car> OnBook { get; set; }
-
-    // First letter of the car name, shown on the banner.
-    private string Initial => string.IsNullOrWhiteSpace(Car.Name) ? "?" : Car.Name[..1].ToUpper();
-
-    // A distinct solid banner color per category for quick visual scanning.
-    private string BannerClass => Car.Category switch
-    {
-        CarCategory.Economy => "bg-emerald-500",
-        CarCategory.Sports => "bg-red-500",
-        CarCategory.SUV => "bg-sky-500",
-        CarCategory.Luxury => "bg-amber-500",
-        _ => "bg-neutral-500"
-    };
-
-    private Task HandleBook() => OnBook.InvokeAsync(Car);
 }

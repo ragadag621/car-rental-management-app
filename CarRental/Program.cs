@@ -14,6 +14,12 @@ builder.Services.AddRazorComponents()
 builder.Services.AddSingleton<ICarService, CarService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
 
+// Auth + rentals: singletons hold the in-memory stores for the app lifetime,
+// while UserSession is scoped to each user's Blazor circuit.
+builder.Services.AddSingleton<IAuthService, AuthService>();
+builder.Services.AddSingleton<IRentalService, RentalService>();
+builder.Services.AddScoped<UserSession>();
+
 var app = builder.Build();
 
 // Standard pipeline.

@@ -1,22 +1,65 @@
 @inherits LayoutComponentBase
+@implements IDisposable
+@inject UserSession Session
+@inject NavigationManager Nav
 
-@* App shell: a sticky header with branding plus the routed page content. *@
-<div class="min-h-screen bg-neutral-950">
+@* App shell: sticky header with branding + navigation, routed content, footer. *@
+<div class="flex min-h-screen flex-col bg-neutral-950">
     <header class="sticky top-0 z-20 border-b border-neutral-800 bg-neutral-950/80 backdrop-blur">
-        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-            <div class="flex items-center gap-2">
+        <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+            <a href="/" class="flex items-center gap-2">
                 <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500 font-extrabold text-neutral-950">D</span>
                 <span class="text-lg font-bold tracking-tight text-neutral-50">DriveNow</span>
+            </a>
+
+            <nav class="hidden items-center gap-6 text-sm font-medium text-neutral-300 md:flex">
+                <a href="/" class="transition hover:text-amber-400">Cars</a>
+                @if (Session.IsLoggedIn)
+                {
+                    <a href="/my-rentals" class="transition hover:text-amber-400">My Rentals</a>
+                }
+                <a href="/contact" class="transition hover:text-amber-400">Contact</a>
+                <a href="/faq" class="transition hover:text-amber-400">FAQ</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                @if (Session.IsLoggedIn)
+                {
+                    <span class="hidden text-sm text-neutral-400 sm:inline">Hi, @Session.CurrentUser!.FullName.Split(' ')[0]</span>
+                    <button @onclick="SignOut"
+                            class="rounded-lg border border-neutral-700 px-3 py-1.5 text-sm font-semibold text-neutral-200 transition hover:bg-neutral-800">
+                        Sign out
+                    </button>
+                }
+                else
+                {
+                    <a href="/login" class="text-sm font-semibold text-neutral-200 transition hover:text-amber-400">Sign in</a>
+                    <a href="/register"
+                       class="rounded-lg bg-amber-500 px-3 py-1.5 text-sm font-semibold text-neutral-950 transition hover:bg-amber-400">
+                        Register
+                    </a>
+                }
             </div>
-            <span class="text-sm font-medium text-neutral-400">Premium Car Rental</span>
         </div>
     </header>
 
-    <main class="mx-auto max-w-6xl px-4 py-8">
+    <main class="mx-auto w-full max-w-6xl flex-1 px-4 py-8">
         @Body
     </main>
 
     <footer class="border-t border-neutral-800 py-6 text-center text-sm text-neutral-500">
-        Built with ASP.NET Core Blazor &amp; Tailwind CSS
+        DriveNow &middot; Built with ASP.NET Core Blazor &amp; Tailwind CSS
     </footer>
 </div>
+
+@code {
+    protected override void OnInitialized() => Session.OnChange += StateHasChanged;
+
+    private void SignOut()
+    {
+        Session.SignOut();
+        Nav.NavigateTo("/");
+    }
+
+    public void Dispose() => Session.OnChange -= StateHasChanged;
+}

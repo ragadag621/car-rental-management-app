@@ -27,54 +27,97 @@ public interface ICarService
 
 /// <summary>
 /// In-memory implementation of <see cref="ICarService"/>.
-/// Data is stored in a hardcoded <see cref="List{Car}"/> as required;
-/// no database or file storage is used.
+/// Data is stored in a hardcoded list; images ship inside wwwroot/images so
+/// they never depend on an external network.
 /// </summary>
 public class CarService : ICarService
 {
-    // The single source of truth for the catalog. Marked readonly so the
-    // reference cannot be reassigned after construction.
     private readonly List<Car> _cars = new()
     {
         new Car
         {
             Id = 1,
             Name = "Toyota Corolla",
-            ImageUrl = "https://images.unsplash.com/photo-1623869675781-80aa31012a5a?w=800&q=80",
+            Brand = "Toyota",
+            ImageUrl = "/images/toyota-corolla.png",
             DailyPrice = 45m,
-            Category = CarCategory.Economy
+            Category = CarCategory.Economy,
+            Year = 2023,
+            TopSpeedKmh = 180,
+            Horsepower = 139,
+            Seats = 5,
+            Transmission = "Automatic",
+            FuelType = "Petrol",
+            AccentColor = "#22c55e",
+            Description = "A reliable and fuel-efficient compact sedan, perfect for city driving and everyday commutes. Comfortable, economical, and easy to handle."
         },
         new Car
         {
             Id = 2,
-            Name = "Porsche 911",
-            ImageUrl = "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
-            DailyPrice = 320m,
-            Category = CarCategory.Sports
+            Name = "BMW 5 Series",
+            Brand = "BMW",
+            ImageUrl = "/images/bmw-5-series.png",
+            DailyPrice = 120m,
+            Category = CarCategory.Luxury,
+            Year = 2024,
+            TopSpeedKmh = 250,
+            Horsepower = 335,
+            Seats = 5,
+            Transmission = "Automatic",
+            FuelType = "Petrol",
+            AccentColor = "#f59e0b",
+            Description = "A refined executive sedan blending sporty performance with premium comfort. Elegant interior, advanced tech, and a smooth, powerful drive."
         },
         new Car
         {
             Id = 3,
-            Name = "Jeep Grand Cherokee",
-            ImageUrl = "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80",
-            DailyPrice = 110m,
-            Category = CarCategory.SUV
+            Name = "Porsche 911",
+            Brand = "Porsche",
+            ImageUrl = "/images/porsche-911.png",
+            DailyPrice = 250m,
+            Category = CarCategory.Sports,
+            Year = 2024,
+            TopSpeedKmh = 293,
+            Horsepower = 379,
+            Seats = 2,
+            Transmission = "Automatic",
+            FuelType = "Petrol",
+            AccentColor = "#ef4444",
+            Description = "An iconic sports car delivering breathtaking acceleration and razor-sharp handling. The ultimate driving experience for enthusiasts."
         },
         new Car
         {
             Id = 4,
-            Name = "Mercedes-Benz S-Class",
-            ImageUrl = "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80",
-            DailyPrice = 250m,
-            Category = CarCategory.Luxury
+            Name = "Jeep Wrangler",
+            Brand = "Jeep",
+            ImageUrl = "/images/jeep-wrangler.png",
+            DailyPrice = 95m,
+            Category = CarCategory.SUV,
+            Year = 2023,
+            TopSpeedKmh = 160,
+            Horsepower = 285,
+            Seats = 5,
+            Transmission = "Automatic",
+            FuelType = "Petrol",
+            AccentColor = "#3b82f6",
+            Description = "A rugged off-road SUV built for adventure. Go anywhere with confidence, whether it's rocky trails or sandy dunes."
         },
         new Car
         {
             Id = 5,
-            Name = "Ford Mustang GT",
-            ImageUrl = "https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?w=800&q=80",
-            DailyPrice = 180m,
-            Category = CarCategory.Sports
+            Name = "Mercedes E-Class",
+            Brand = "Mercedes-Benz",
+            ImageUrl = "/images/mercedes-e-class.png",
+            DailyPrice = 130m,
+            Category = CarCategory.Luxury,
+            Year = 2024,
+            TopSpeedKmh = 240,
+            Horsepower = 255,
+            Seats = 5,
+            Transmission = "Automatic",
+            FuelType = "Diesel",
+            AccentColor = "#f59e0b",
+            Description = "A luxurious business sedan offering supreme comfort, cutting-edge safety, and a whisper-quiet cabin. Travel in style and sophistication."
         }
     };
 
@@ -84,13 +127,11 @@ public class CarService : ICarService
     /// <inheritdoc />
     public IReadOnlyList<Car> GetCarsByCategory(CarCategory? category)
     {
-        // When no category is selected we return the full list.
         if (category is null)
         {
             return _cars;
         }
 
-        // LINQ filtering: keep only cars whose category matches the request.
         return _cars
             .Where(car => car.Category == category)
             .ToList();
@@ -98,12 +139,10 @@ public class CarService : ICarService
 
     /// <inheritdoc />
     public Car? GetCarById(int id) =>
-        // LINQ single-or-default lookup by primary key.
         _cars.FirstOrDefault(car => car.Id == id);
 
     /// <inheritdoc />
     public IReadOnlyList<CarCategory> GetAvailableCategories() =>
-        // Project to category, de-duplicate, and order for a stable UI.
         _cars
             .Select(car => car.Category)
             .Distinct()

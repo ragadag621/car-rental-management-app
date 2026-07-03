@@ -1,0 +1,52 @@
+@page "/faq"
+@rendermode InteractiveServer
+
+<PageTitle>FAQ - DriveNow</PageTitle>
+
+<h1 class="mb-2 text-3xl font-extrabold text-neutral-50">Frequently Asked Questions</h1>
+<p class="mb-8 max-w-2xl text-neutral-400">
+    Everything you need to know about renting with DriveNow.
+</p>
+
+<div class="mx-auto max-w-3xl space-y-3">
+    @foreach (var (item, index) in _faqs.Select((f, i) => (f, i)))
+    {
+        <div class="overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900">
+            <button @onclick="() => Toggle(index)"
+                    class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left">
+                <span class="font-semibold text-neutral-100">@item.Question</span>
+                <span class="text-xl text-amber-400">@(_open == index ? "−" : "+")</span>
+            </button>
+            @if (_open == index)
+            {
+                <div class="border-t border-neutral-800 px-5 py-4 text-neutral-400">
+                    @item.Answer
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private int? _open = 0;
+
+    private void Toggle(int index) => _open = _open == index ? null : index;
+
+    private record FaqItem(string Question, string Answer);
+
+    private readonly List<FaqItem> _faqs = new()
+    {
+        new("What do I need to rent a car?",
+            "You need a valid driver's license, a registered DriveNow account, and to be at least 21 years old. Simply sign in, pick a car, and choose your dates."),
+        new("How is the rental price calculated?",
+            "The total price is your selected car's daily rate multiplied by the number of rental days. There are no hidden fees, and the total is shown before you confirm."),
+        new("Can I cancel or change my booking?",
+            "Yes. You can view all your bookings under My Rentals. Contact our support team for changes or cancellations before your pickup date."),
+        new("Is insurance included?",
+            "Basic insurance is included with every rental. Additional coverage options can be arranged with our team at pickup."),
+        new("Where can I pick up and return the car?",
+            "Pickup and return are available at our Riyadh head office. See the Contact page for the full address and opening hours."),
+        new("What fuel policy do you use?",
+            "Cars are provided with a full tank and should be returned full. Otherwise, a refueling charge may apply.")
+    };
+}

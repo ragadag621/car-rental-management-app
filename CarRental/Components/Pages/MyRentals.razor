@@ -1,0 +1,81 @@
+@page "/my-rentals"
+@inject IRentalService RentalService
+@inject UserSession Session
+@rendermode InteractiveServer
+
+<PageTitle>My Rentals - DriveNow</PageTitle>
+
+<h1 class="mb-6 text-3xl font-extrabold text-neutral-50">My Rentals</h1>
+
+@if (!Session.IsLoggedIn)
+{
+    <div class="rounded-2xl border border-neutral-800 bg-neutral-900 p-10 text-center">
+        <p class="text-neutral-300">Please sign in to view your rentals.</p>
+        <a href="/login" class="mt-4 inline-block rounded-lg bg-amber-500 px-4 py-2 text-sm font-semibold text-neutral-950 transition hover:bg-amber-400">
+            Sign in
+        </a>
+    </div>
+}
+else if (_rentals.Count == 0)
+{
+    <div class="rounded-2xl border border-neutral-800 bg-neutral-900 p-10 text-center">
+        <p class="text-neutral-300">You have no rentals yet.</p>
+        <a href="/" class="mt-4 inline-block rounded-lg bg-amber-500 px-4 py-2 text-sm font-semibold text-neutral-950 transition hover:bg-amber-400">
+            Browse cars
+        </a>
+    </div>
+}
+else
+{
+    <div class="space-y-4">
+        @foreach (var rental in _rentals)
+        {
+            <div class="flex flex-col gap-4 rounded-2xl border border-neutral-800 bg-neutral-900 p-4 sm:flex-row sm:items-center">
+                <img src="@rental.CarImageUrl" alt="@rental.CarName"
+                     class="h-28 w-full rounded-xl object-cover sm:w-44" />
+
+                <div class="flex-1">
+                    <div class="flex items-center gap-3">
+                        <h3 class="text-lg font-bold text-neutral-50">@rental.CarName</h3>
+                        <span class="@StatusClass(rental.Status)">@rental.Status</span>
+                    </div>
+                    <p class="mt-1 text-sm text-neutral-400">
+                        @rental.StartDate.ToString("MMM d, yyyy") &ndash; @rental.EndDate.ToString("MMM d, yyyy")
+                        &middot; @rental.NumberOfDays day(s)
+                    </p>
+                    <p class="mt-1 text-xs text-neutral-500">Booked on @rental.BookedOn.ToString("MMM d, yyyy")</p>
+                </div>
+
+                <div class="text-right">
+                    <p class="text-2xl font-extrabold text-amber-400">@rental.TotalPrice.ToString("C2")</p>
+                    <a href="@($"/cars/{rental.CarId}")" class="text-sm font-medium text-neutral-400 transition hover:text-amber-400">
+                        View car
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private IReadOnlyList<Rental> _rentals = Array.Empty<Rental>();
+
+    protected override void OnInitialized()
+    {
+        if (Session.CurrentUser is not null)
+        {
+            _rentals = RentalService.GetRentalsForUser(Session.CurrentUser.Id);
+        }
+    }
+
+    private string StatusClass(string status)
+    {
+        var baseClasses = "rounded-full px-2.5 py-0.5 text-xs font-semibold ";
+        return status switch
+        {
+            "Active" => baseClasses + "bg-emerald-500/15 text-emerald-400",
+            "Upcoming" => baseClasses + "bg-amber-500/15 text-amber-400",
+            _ => baseClasses + "bg-neutral-700/40 text-neutral-300"
+        };
+    }
+}

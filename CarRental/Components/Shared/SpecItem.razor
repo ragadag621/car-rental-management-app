@@ -1,0 +1,10 @@
+@* A single spec tile (label + value) shown on the car detail page. *@
+<div class="rounded-xl border border-neutral-800 bg-neutral-900 p-4">
+    <dt class="text-xs uppercase tracking-wide text-neutral-500">@Label</dt>
+    <dd class="mt-1 font-bold text-neutral-100">@Value</dd>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public string Label { get; set; } = string.Empty;
+    [Parameter, EditorRequired] public string Value { get; set; } = string.Empty;
+}

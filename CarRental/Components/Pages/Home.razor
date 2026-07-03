@@ -1,41 +1,29 @@
 @page "/"
-@rendermode InteractiveServer
 @inject ICarService CarService
-@inject IBookingService BookingService
+@rendermode InteractiveServer
 
-<PageTitle>DriveNow — Find your ride</PageTitle>
+<PageTitle>DriveNow - Premium Car Rental</PageTitle>
 
-<!-- Hero / heading -->
-<section class="mb-8">
-    <h1 class="text-balance text-3xl font-extrabold tracking-tight text-neutral-50 sm:text-4xl">
+<!-- Hero -->
+<section class="mb-10">
+    <h1 class="text-balance text-4xl font-extrabold tracking-tight text-neutral-50 sm:text-5xl">
         Rent the perfect car for every journey
     </h1>
-    <p class="mt-2 max-w-2xl text-pretty text-neutral-400">
+    <p class="mt-4 max-w-2xl text-pretty text-lg leading-relaxed text-neutral-400">
         Browse our fleet, filter by category, and book in seconds. Transparent daily pricing, no hidden fees.
     </p>
 </section>
 
-<!-- Category filter: built dynamically from the service via LINQ -->
-<div class="mb-8 flex flex-wrap gap-2">
-    <button @onclick="() => FilterBy(null)"
-            class="@FilterButtonClass(null)">
-        All
-    </button>
+<!-- Category filters -->
+<div class="mb-8 flex flex-wrap gap-3">
+    <button @onclick="() => FilterBy(null)" class="@FilterButtonClass(null)">All</button>
     @foreach (var category in _categories)
     {
-        <button @onclick="() => FilterBy(category)"
-                class="@FilterButtonClass(category)">
-            @category
-        </button>
+        <button @onclick="() => FilterBy(category)" class="@FilterButtonClass(category)">@category</button>
     }
 </div>
 
-<!-- TEMP DIAGNOSTIC: inline styles only, does not depend on Tailwind -->
-<div style="background:#fbbf24;color:#000;padding:8px 12px;border-radius:8px;font-weight:700;margin-bottom:16px;">
-    DIAGNOSTIC → cars loaded: @_cars.Count
-</div>
-
-<!-- Responsive car grid -->
+<!-- Car grid -->
 @if (_cars.Count == 0)
 {
     <p class="text-neutral-400">No cars available in this category.</p>
@@ -45,174 +33,34 @@ else
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         @foreach (var car in _cars)
         {
-            <div style="border:2px solid #f59e0b;border-radius:12px;padding:16px;background:#262626;color:#fff;min-height:120px;">
-                <div style="font-size:18px;font-weight:700;">@car.Name</div>
-                <div style="color:#fbbf24;font-size:22px;font-weight:800;">@car.DailyPrice.ToString("C0") <span style="font-size:13px;color:#a3a3a3;">/ day</span></div>
-                <div style="color:#a3a3a3;font-size:13px;">@car.Category</div>
-                <button @onclick="() => OpenBooking(car)" style="margin-top:10px;background:#f59e0b;color:#000;border:none;border-radius:8px;padding:8px 14px;font-weight:700;cursor:pointer;">Book now</button>
-            </div>
+            <CarCard Car="car" />
         }
     </div>
 }
 
-<!-- Booking modal -->
-@if (_selectedCar is not null)
-{
-    <div class="fixed inset-0 z-30 flex items-center justify-center bg-neutral-950/70 p-4 backdrop-blur-sm">
-        <div class="w-full max-w-md rounded-2xl border border-neutral-800 bg-neutral-900 p-6 shadow-2xl">
-            <div class="mb-4 flex items-start justify-between">
-                <div>
-                    <h2 class="text-xl font-bold text-neutral-50">Book @_selectedCar.Name</h2>
-                    <p class="text-sm text-neutral-400">
-                        @_selectedCar.Category • @_selectedCar.DailyPrice.ToString("C0") / day
-                    </p>
-                </div>
-                <button @onclick="CloseBooking"
-                        class="rounded-lg p-1 text-neutral-400 transition hover:bg-neutral-800 hover:text-neutral-100"
-                        aria-label="Close">
-                    ✕
-                </button>
-            </div>
-
-            @if (_summary is null)
-            {
-                <!-- Booking form with built-in + custom validation -->
-                <EditForm Model="_booking" OnValidSubmit="SubmitBooking">
-                    <DataAnnotationsValidator />
-
-                    <div class="flex flex-col gap-4">
-                        <div>
-                            <label class="mb-1 block text-sm font-medium text-neutral-300">Your name</label>
-                            <InputText @bind-Value="_booking.CustomerName"
-                                       class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-neutral-100 outline-none focus:border-amber-500" />
-                            <ValidationMessage For="() => _booking.CustomerName" class="mt-1 block text-sm text-red-400" />
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-3">
-                            <div>
-                                <label class="mb-1 block text-sm font-medium text-neutral-300">Start date</label>
-                                <InputDate @bind-Value="_booking.StartDate"
-                                           class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-neutral-100 outline-none focus:border-amber-500" />
-                                <ValidationMessage For="() => _booking.StartDate" class="mt-1 block text-sm text-red-400" />
-                            </div>
-                            <div>
-                                <label class="mb-1 block text-sm font-medium text-neutral-300">End date</label>
-                                <InputDate @bind-Value="_booking.EndDate"
-                                           class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-neutral-100 outline-none focus:border-amber-500" />
-                                <ValidationMessage For="() => _booking.EndDate" class="mt-1 block text-sm text-red-400" />
-                            </div>
-                        </div>
-
-                        @if (_errorMessage is not null)
-                        {
-                            <p class="rounded-lg bg-red-500/10 px-3 py-2 text-sm text-red-400">@_errorMessage</p>
-                        }
-
-                        <button type="submit"
-                                class="mt-2 w-full rounded-lg bg-amber-500 px-4 py-2.5 font-semibold text-neutral-950 transition hover:bg-amber-400">
-                            Calculate &amp; confirm
-                        </button>
-                    </div>
-                </EditForm>
-            }
-            else
-            {
-                <!-- Success summary -->
-                <div class="flex flex-col gap-3">
-                    <div class="rounded-lg bg-emerald-500/10 px-3 py-2 text-sm font-medium text-emerald-400">
-                        Booking confirmed!
-                    </div>
-
-                    <dl class="divide-y divide-neutral-800 rounded-lg border border-neutral-800">
-                        <SummaryRow Label="Customer" Value="@_summary.CustomerName" />
-                        <SummaryRow Label="Car" Value="@_summary.Car.Name" />
-                        <SummaryRow Label="From" Value="@_summary.StartDate.ToString("MMM d, yyyy")" />
-                        <SummaryRow Label="To" Value="@_summary.EndDate.ToString("MMM d, yyyy")" />
-                        <SummaryRow Label="Days" Value="@_summary.NumberOfDays.ToString()" />
-                        <SummaryRow Label="Daily rate" Value="@_summary.Car.DailyPrice.ToString("C0")" />
-                    </dl>
-
-                    <div class="flex items-center justify-between rounded-lg bg-amber-500/10 px-4 py-3">
-                        <span class="font-semibold text-neutral-200">Total</span>
-                        <span class="text-2xl font-extrabold text-amber-400">@_summary.TotalPrice.ToString("C2")</span>
-                    </div>
-
-                    <button @onclick="CloseBooking"
-                            class="mt-2 w-full rounded-lg border border-neutral-700 px-4 py-2.5 font-semibold text-neutral-200 transition hover:bg-neutral-800">
-                        Done
-                    </button>
-                </div>
-            }
-        </div>
-    </div>
-}
-
 @code {
-    // --- UI state ---------------------------------------------------------
     private IReadOnlyList<CarCategory> _categories = Array.Empty<CarCategory>();
     private IReadOnlyList<Car> _cars = Array.Empty<Car>();
     private CarCategory? _activeCategory;
 
-    private Car? _selectedCar;
-    private Booking _booking = new();
-    private BookingSummary? _summary;
-    private string? _errorMessage;
-
     protected override void OnInitialized()
     {
-        // Pull data through the service layer (LINQ-backed).
         _categories = CarService.GetAvailableCategories();
         _cars = CarService.GetAllCars();
     }
 
-    // --- Filtering --------------------------------------------------------
     private void FilterBy(CarCategory? category)
     {
         _activeCategory = category;
         _cars = CarService.GetCarsByCategory(category);
     }
 
-    // Computes Tailwind classes for the active vs inactive filter chip.
     private string FilterButtonClass(CarCategory? category)
     {
         var isActive = _activeCategory == category;
-        var baseClasses = "rounded-full px-4 py-1.5 text-sm font-semibold transition ";
+        var baseClasses = "rounded-full px-5 py-2 text-sm font-semibold transition ";
         return isActive
             ? baseClasses + "bg-amber-500 text-neutral-950"
             : baseClasses + "border border-neutral-700 text-neutral-300 hover:bg-neutral-800";
-    }
-
-    // --- Booking workflow -------------------------------------------------
-    private void OpenBooking(Car car)
-    {
-        _selectedCar = car;
-        _booking = new Booking { StartDate = DateTime.Today, EndDate = DateTime.Today.AddDays(1) };
-        _summary = null;
-        _errorMessage = null;
-    }
-
-    private void CloseBooking()
-    {
-        _selectedCar = null;
-        _summary = null;
-        _errorMessage = null;
-    }
-
-    // Delegates pricing + validation to the booking service.
-    private void SubmitBooking()
-    {
-        if (_selectedCar is null) return;
-
-        var result = BookingService.CreateBooking(_selectedCar, _booking);
-
-        if (result.Success)
-        {
-            _summary = result.Summary;
-            _errorMessage = null;
-        }
-        else
-        {
-            _errorMessage = result.ErrorMessage;
-        }
     }
 }

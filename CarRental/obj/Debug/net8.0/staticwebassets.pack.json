@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ragad\\OneDrive\\سطح المكتب\\CarRental\\car-rental-management-app\\CarRental\\wwwroot\\images\\bmw-5-series.png",
+      "PackagePath": "staticwebassets\\images\\bmw-5-series.png"
+    },
+    {
+      "Id": "C:\\Users\\ragad\\OneDrive\\سطح المكتب\\CarRental\\car-rental-management-app\\CarRental\\wwwroot\\images\\jeep-wrangler.png",
+      "PackagePath": "staticwebassets\\images\\jeep-wrangler.png"
+    },
+    {
+      "Id": "C:\\Users\\ragad\\OneDrive\\سطح المكتب\\CarRental\\car-rental-management-app\\CarRental\\wwwroot\\images\\mercedes-e-class.png",
+      "PackagePath": "staticwebassets\\images\\mercedes-e-class.png"
+    },
+    {
+      "Id": "C:\\Users\\ragad\\OneDrive\\سطح المكتب\\CarRental\\car-rental-management-app\\CarRental\\wwwroot\\images\\porsche-911.png",
+      "PackagePath": "staticwebassets\\images\\porsche-911.png"
+    },
+    {
+      "Id": "C:\\Users\\ragad\\OneDrive\\سطح المكتب\\CarRental\\car-rental-management-app\\CarRental\\wwwroot\\images\\toyota-corolla.png",
+      "PackagePath": "staticwebassets\\images\\toyota-corolla.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CarRental.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CarRental.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CarRental.props",
+      "PackagePath": "build\\CarRental.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CarRental.props",
+      "PackagePath": "buildMultiTargeting\\CarRental.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CarRental.props",
+      "PackagePath": "buildTransitive\\CarRental.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

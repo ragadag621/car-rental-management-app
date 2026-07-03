@@ -1,0 +1,64 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/CarRental/images/bmw-5-series.medh71x0ow.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\bmw-5-series.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"medh71x0ow"},{"Name":"integrity","Value":"sha256-4oasuK541rKGUSoHCsbg\u002BRbY19dF3qskuTUR/8yLOhM="},{"Name":"label","Value":"_content/CarRental/images/bmw-5-series.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"684671"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00224oasuK541rKGUSoHCsbg\u002BRbY19dF3qskuTUR/8yLOhM=\u0022"},{"Name":"Last-Modified","Value":"Fri, 03 Jul 2026 18:05:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CarRental/images/bmw-5-series.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\bmw-5-series.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-4oasuK541rKGUSoHCsbg\u002BRbY19dF3qskuTUR/8yLOhM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"684671"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00224oasuK541rKGUSoHCsbg\u002BRbY19dF3qskuTUR/8yLOhM=\u0022"},{"Name":"Last-Modified","Value":"Fri, 03 Jul 2026 18:05:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CarRental/images/jeep-wrangler.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\jeep-wrangler.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Re10ydE93\u002BoSRmEMtL6Il5PrPhLe1wi4dhqONH/boVI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1037946"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022Re10ydE93\u002BoSRmEMtL6Il5PrPhLe1wi4dhqONH/boVI=\u0022"},{"Name":"Last-Modified","Value":"Fri, 03 Jul 2026 18:05:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CarRental/images/jeep-wrangler.xt9ucto330.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\jeep-wrangler.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xt9ucto330"},{"Name":"integrity","Value":"sha256-Re10ydE93\u002BoSRmEMtL6Il5PrPhLe1wi4dhqONH/boVI="},{"Name":"label","Value":"_content/CarRental/images/jeep-wrangler.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1037946"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022Re10ydE93\u002BoSRmEMtL6Il5PrPhLe1wi4dhqONH/boVI=\u0022"},{"Name":"Last-Modified","Value":"Fri, 03 Jul 2026 18:05:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CarRental/images/mercedes-e-class.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\mercedes-e-class.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-kjMCfuIEY1FSnKx53EqLxrdzZjVUp78fjbbDhdFXCXg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"628464"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022kjMCfuIEY1FSnKx53EqLxrdzZjVUp78fjbbDhdFXCXg=\u0022"},{"Name":"Last-Modified","Value":"Fri, 03 Jul 2026 18:05:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CarRental/images/mercedes-e-class.yc8d41u3xy.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\mercedes-e-class.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"yc8d41u3xy"},{"Name":"integrity","Value":"sha256-kjMCfuIEY1FSnKx53EqLxrdzZjVUp78fjbbDhdFXCXg="},{"Name":"label","Value":"_content/CarRental/images/mercedes-e-class.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"628464"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022kjMCfuIEY1FSnKx53EqLxrdzZjVUp78fjbbDhdFXCXg=\u0022"},{"Name":"Last-Modified","Value":"Fri, 03 Jul 2026 18:05:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CarRental/images/porsche-911.3lmp4m78mw.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\porsche-911.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"3lmp4m78mw"},{"Name":"integrity","Value":"sha256-abUrSoHP4\u002BDCF3MaKkFD4bKsK19nvKI3S28hq3EpYEg="},{"Name":"label","Value":"_content/CarRental/images/porsche-911.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"800208"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022abUrSoHP4\u002BDCF3MaKkFD4bKsK19nvKI3S28hq3EpYEg=\u0022"},{"Name":"Last-Modified","Value":"Fri, 03 Jul 2026 18:05:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CarRental/images/porsche-911.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\porsche-911.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-abUrSoHP4\u002BDCF3MaKkFD4bKsK19nvKI3S28hq3EpYEg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"800208"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022abUrSoHP4\u002BDCF3MaKkFD4bKsK19nvKI3S28hq3EpYEg=\u0022"},{"Name":"Last-Modified","Value":"Fri, 03 Jul 2026 18:05:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CarRental/images/toyota-corolla.9egbgupx83.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\toyota-corolla.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"9egbgupx83"},{"Name":"integrity","Value":"sha256-wT80/HT60uAajUHKgnsQzlPTVbPJhIR/kIW0F0JB8j8="},{"Name":"label","Value":"_content/CarRental/images/toyota-corolla.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"742950"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022wT80/HT60uAajUHKgnsQzlPTVbPJhIR/kIW0F0JB8j8=\u0022"},{"Name":"Last-Modified","Value":"Fri, 03 Jul 2026 18:05:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CarRental/images/toyota-corolla.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\toyota-corolla.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-wT80/HT60uAajUHKgnsQzlPTVbPJhIR/kIW0F0JB8j8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"742950"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022wT80/HT60uAajUHKgnsQzlPTVbPJhIR/kIW0F0JB8j8=\u0022"},{"Name":"Last-Modified","Value":"Fri, 03 Jul 2026 18:05:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

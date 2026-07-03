@@ -1,0 +1,416 @@
+{
+  "Version": 1,
+  "ManifestType": "Build",
+  "Endpoints": [
+    {
+      "Route": "images/bmw-5-series.medh71x0ow.png",
+      "AssetFile": "images/bmw-5-series.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "684671"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4oasuK541rKGUSoHCsbg+RbY19dF3qskuTUR/8yLOhM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jul 2026 18:05:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "medh71x0ow"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4oasuK541rKGUSoHCsbg+RbY19dF3qskuTUR/8yLOhM="
+        },
+        {
+          "Name": "label",
+          "Value": "images/bmw-5-series.png"
+        }
+      ]
+    },
+    {
+      "Route": "images/bmw-5-series.png",
+      "AssetFile": "images/bmw-5-series.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "684671"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4oasuK541rKGUSoHCsbg+RbY19dF3qskuTUR/8yLOhM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jul 2026 18:05:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4oasuK541rKGUSoHCsbg+RbY19dF3qskuTUR/8yLOhM="
+        }
+      ]
+    },
+    {
+      "Route": "images/jeep-wrangler.png",
+      "AssetFile": "images/jeep-wrangler.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1037946"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Re10ydE93+oSRmEMtL6Il5PrPhLe1wi4dhqONH/boVI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jul 2026 18:05:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Re10ydE93+oSRmEMtL6Il5PrPhLe1wi4dhqONH/boVI="
+        }
+      ]
+    },
+    {
+      "Route": "images/jeep-wrangler.xt9ucto330.png",
+      "AssetFile": "images/jeep-wrangler.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1037946"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Re10ydE93+oSRmEMtL6Il5PrPhLe1wi4dhqONH/boVI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jul 2026 18:05:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xt9ucto330"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Re10ydE93+oSRmEMtL6Il5PrPhLe1wi4dhqONH/boVI="
+        },
+        {
+          "Name": "label",
+          "Value": "images/jeep-wrangler.png"
+        }
+      ]
+    },
+    {
+      "Route": "images/mercedes-e-class.png",
+      "AssetFile": "images/mercedes-e-class.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "628464"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kjMCfuIEY1FSnKx53EqLxrdzZjVUp78fjbbDhdFXCXg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jul 2026 18:05:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kjMCfuIEY1FSnKx53EqLxrdzZjVUp78fjbbDhdFXCXg="
+        }
+      ]
+    },
+    {
+      "Route": "images/mercedes-e-class.yc8d41u3xy.png",
+      "AssetFile": "images/mercedes-e-class.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "628464"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kjMCfuIEY1FSnKx53EqLxrdzZjVUp78fjbbDhdFXCXg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jul 2026 18:05:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yc8d41u3xy"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kjMCfuIEY1FSnKx53EqLxrdzZjVUp78fjbbDhdFXCXg="
+        },
+        {
+          "Name": "label",
+          "Value": "images/mercedes-e-class.png"
+        }
+      ]
+    },
+    {
+      "Route": "images/porsche-911.3lmp4m78mw.png",
+      "AssetFile": "images/porsche-911.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "800208"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"abUrSoHP4+DCF3MaKkFD4bKsK19nvKI3S28hq3EpYEg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jul 2026 18:05:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3lmp4m78mw"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-abUrSoHP4+DCF3MaKkFD4bKsK19nvKI3S28hq3EpYEg="
+        },
+        {
+          "Name": "label",
+          "Value": "images/porsche-911.png"
+        }
+      ]
+    },
+    {
+      "Route": "images/porsche-911.png",
+      "AssetFile": "images/porsche-911.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "800208"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"abUrSoHP4+DCF3MaKkFD4bKsK19nvKI3S28hq3EpYEg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jul 2026 18:05:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-abUrSoHP4+DCF3MaKkFD4bKsK19nvKI3S28hq3EpYEg="
+        }
+      ]
+    },
+    {
+      "Route": "images/toyota-corolla.9egbgupx83.png",
+      "AssetFile": "images/toyota-corolla.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "742950"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wT80/HT60uAajUHKgnsQzlPTVbPJhIR/kIW0F0JB8j8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jul 2026 18:05:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9egbgupx83"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wT80/HT60uAajUHKgnsQzlPTVbPJhIR/kIW0F0JB8j8="
+        },
+        {
+          "Name": "label",
+          "Value": "images/toyota-corolla.png"
+        }
+      ]
+    },
+    {
+      "Route": "images/toyota-corolla.png",
+      "AssetFile": "images/toyota-corolla.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "742950"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wT80/HT60uAajUHKgnsQzlPTVbPJhIR/kIW0F0JB8j8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jul 2026 18:05:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wT80/HT60uAajUHKgnsQzlPTVbPJhIR/kIW0F0JB8j8="
+        }
+      ]
+    }
+  ]
+}

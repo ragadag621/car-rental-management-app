@@ -1,11 +1,14 @@
 @* Presentational component for a single car. Receives a Car and a callback
-   invoked when the user clicks "Book". Holds no business logic. *@
+   invoked when the user clicks "Book". Holds no business logic.
 
-<div class="group flex flex-col overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 shadow-lg transition hover:border-neutral-700">
-    <div class="relative aspect-video overflow-hidden bg-neutral-800">
-        <img src="@Car.ImageUrl" alt="@Car.Name"
-             class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
-        <span class="absolute left-3 top-3 rounded-full bg-neutral-950/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-400 backdrop-blur">
+   The header panel is a self-contained colored block (no external images),
+   so every card is guaranteed to render visibly even with no internet access. *@
+
+<div class="group flex flex-col overflow-hidden rounded-2xl border border-neutral-700 bg-neutral-800 shadow-lg transition hover:border-amber-500">
+    <!-- Colored banner: uses the category color + car initial, no remote image -->
+    <div class="relative flex h-40 items-center justify-center @BannerClass">
+        <span class="text-5xl font-black text-neutral-950/80">@Initial</span>
+        <span class="absolute left-3 top-3 rounded-full bg-neutral-950/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-300 backdrop-blur">
             @Car.Category
         </span>
     </div>
@@ -32,6 +35,19 @@
 
     /// <summary>Raised when the user chooses to book this car.</summary>
     [Parameter] public EventCallback<Car> OnBook { get; set; }
+
+    // First letter of the car name, shown on the banner.
+    private string Initial => string.IsNullOrWhiteSpace(Car.Name) ? "?" : Car.Name[..1].ToUpper();
+
+    // A distinct solid banner color per category for quick visual scanning.
+    private string BannerClass => Car.Category switch
+    {
+        CarCategory.Economy => "bg-emerald-500",
+        CarCategory.Sports => "bg-red-500",
+        CarCategory.SUV => "bg-sky-500",
+        CarCategory.Luxury => "bg-amber-500",
+        _ => "bg-neutral-500"
+    };
 
     private Task HandleBook() => OnBook.InvokeAsync(Car);
 }

@@ -1,33 +1,30 @@
-# car-rental-management-app
+# DriveNow - Premium Car Rental Platform
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+DriveNow is a full-stack car rental application built with **ASP.NET Core Blazor (Server)** and **Tailwind CSS**. It provides a seamless experience for browsing a premium car fleet, managing user authentication, and handling rental bookings.
 
-## Built with v0
+## 🚀 Key Features
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+* **Premium Fleet Management:** Browse vehicles categorized by type (Economy, Luxury, Sports, SUV).
+* **Authentication System:** Secure registration and login functionality using in-memory state management.
+* **Detailed Vehicle Views:** Dedicated pages for each vehicle showcasing technical specifications and daily rates.
+* **Booking Workflow:** Intuitive booking process with real-time price calculation (restricted to authenticated users).
+* **Personal Dashboard:** A "My Rentals" section to track current and past bookings.
+* **Responsive Design:** Fully mobile-optimized UI using Tailwind CSS.
+* **Support & FAQ:** Integrated contact and help center pages.
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_Za8iR7Cno5j1LGs5nand45cdCNt7)
+## 🛠 Tech Stack
 
-## Getting Started
+* **Framework:** .NET 8 / ASP.NET Core Blazor Server.
+* **Styling:** Tailwind CSS.
+* **Data Management:** In-memory services with LINQ integration.
+* **Architecture:** Clean separation of Models, Services, and UI Components.
 
-First, run the development server:
+## ⚙️ Getting Started
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Prerequisites
+* [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) installed on your machine.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ragadag621/car-rental-management-app.git

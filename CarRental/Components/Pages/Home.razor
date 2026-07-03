@@ -30,6 +30,11 @@
     }
 </div>
 
+<!-- TEMP DIAGNOSTIC: inline styles only, does not depend on Tailwind -->
+<div style="background:#fbbf24;color:#000;padding:8px 12px;border-radius:8px;font-weight:700;margin-bottom:16px;">
+    DIAGNOSTIC → cars loaded: @_cars.Count
+</div>
+
 <!-- Responsive car grid -->
 @if (_cars.Count == 0)
 {
@@ -40,7 +45,12 @@ else
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         @foreach (var car in _cars)
         {
-            <CarCard Car="car" OnBook="OpenBooking" />
+            <div style="border:2px solid #f59e0b;border-radius:12px;padding:16px;background:#262626;color:#fff;min-height:120px;">
+                <div style="font-size:18px;font-weight:700;">@car.Name</div>
+                <div style="color:#fbbf24;font-size:22px;font-weight:800;">@car.DailyPrice.ToString("C0") <span style="font-size:13px;color:#a3a3a3;">/ day</span></div>
+                <div style="color:#a3a3a3;font-size:13px;">@car.Category</div>
+                <button @onclick="() => OpenBooking(car)" style="margin-top:10px;background:#f59e0b;color:#000;border:none;border-radius:8px;padding:8px 14px;font-weight:700;cursor:pointer;">Book now</button>
+            </div>
         }
     </div>
 }

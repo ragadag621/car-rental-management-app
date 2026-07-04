@@ -1,4 +1,6 @@
 # DriveNow - Premium Car Rental Platform
+<img width="936" height="398" alt="Screenshot 2026-07-04 170411" src="https://github.com/user-attachments/assets/283f0582-f219-473e-a56b-f4e6fc6f214b" />
+
 
 DriveNow is a full-stack car rental application built with **ASP.NET Core Blazor (Server)** and **Tailwind CSS**. It provides a seamless experience for browsing a premium car fleet, managing user authentication, and handling rental bookings.
 
